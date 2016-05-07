@@ -30,7 +30,7 @@ public class Main {
 
         //Add 10 000 elements to ArrayList
         int listSize = 10000;
-        long startTime1 = System.currentTimeMillis();
+        long startTime1 = System.nanoTime();
         for (int i = 0; i < listSize; i++) {
             list1.add((int) (Math.random() * 10));
         }
@@ -38,7 +38,7 @@ public class Main {
         System.out.println(spendTime1);
 
         //Add 10 000 elements to LinkedList
-        long startTime2 = System.currentTimeMillis();
+        long startTime2 = System.nanoTime();
         for (int i = 0; i < listSize; i++) {
             list2.add((int) (Math.random() * 10));
         }
@@ -48,18 +48,18 @@ public class Main {
         System.out.println("Size of collection #1 (ArrayList): " + list1.size());
         System.out.println("Size of collection #2 (LinkedList): " + list2.size());
 
-        long startTime3 = System.currentTimeMillis();
+        long startTime3 = System.nanoTime();
         for (int i = 0; i < listSize; i++) {
             list1.get(i);
         }
-        long spendTime3 = System.currentTimeMillis() - startTime3;
+        long spendTime3 = System.nanoTime()- startTime3;
         System.out.println("Speed of getting the ArrayList's (10 000 el) value without output: " + spendTime3 + " ms");
 
-        long startTime4 = System.currentTimeMillis();
+        long startTime4 = System.nanoTime();
         for (int i = 0; i < listSize; i++) {
             list2.get(i);
         }
-        long spendTime4 = System.currentTimeMillis() - startTime4;
+        long spendTime4 = System.nanoTime()- startTime4;
         System.out.println("Speed of getting the LinkedList's (10 000 el) value without output: " + spendTime4 + " ms");
 
         if (spendTime3 < spendTime4) {
@@ -69,21 +69,21 @@ public class Main {
         }
 
         ListIterator iterator;
-        long startTime5 = System.currentTimeMillis();
+        long startTime5 = System.nanoTime();
         for (iterator = list1.listIterator(); iterator.hasNext();) {
             iterator.next();
             iterator.remove();
         }
-        long spendTime5 = System.currentTimeMillis() - startTime5;
+        long spendTime5 = System.nanoTime()- startTime5;
         System.out.println("Speed of removing the ArrayList's (10 000 el): " + spendTime5 + " ms");
 
         iterator = list2.listIterator();
-        long startTime6 = System.currentTimeMillis();
+        long startTime6 = System.nanoTime();
         for (iterator = list2.listIterator(); iterator.hasNext();) {
             iterator.next();
             iterator.remove();
         }
-        long spendTime6 = System.currentTimeMillis() - startTime6;
+        long spendTime6 = System.nanoTime()- startTime6;
         System.out.println("Speed of removing the LinkedList's (10 000 el): " + spendTime6 + " ms");
 
         if (spendTime5 < spendTime6) {
